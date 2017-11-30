@@ -1,0 +1,23 @@
+.light{
+  height:200px;
+  width:200px;
+  border-radius: 100px;
+  border-style: solid;
+  border-width: medium;
+}
+
+.blue{
+  background-color: blue;
+}
+
+.on{
+  opacity: 0.9;
+}
+
+.off{
+  opacity: 0.2;
+}
+
+.blink{
+  opacity: 0.5;
+}

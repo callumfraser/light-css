@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <button type="button" class="btn"name="button">Button</button>
+    <br><br>
+    <button type="button" class="onBtn"name="button">On</button>
+    <button type="button" class="offBtn"name="button">Off</button>
+    <button type="button" class="blinkBtn"name="button">Blink</button>
+    <br><br><br>
+    <div id="light">
+
+    </div>
+  </body>
+  <script type="text/javascript">
+
+  var Light = function(id, color) {
+
+  //get the target element to render the light into
+  var elem = document.getElementById(id);
+  elem.classList.add('light-background');
+
+  //append a div into the target element
+  var lightElem = document.createElement('div');
+  lightElem.classList.add('light');
+  lightElem.classList.add(color);
+  lightElem.classList.add('off');
+  elem.appendChild(lightElem);
+
+  console.log(lightElem.classList);
+
+
+  this.on = function(){
+    lightElem.classList.remove('off');
+    lightElem.classList.remove('blink');
+    lightElem.classList.add('on');
+  }
+
+  this.off = function(){
+    lightElem.classList.remove('on');
+    lightElem.classList.remove('blink');
+    lightElem.classList.add('off');
+  }
+  this.blink = function(){
+    lightElem.classList.remove('on');
+    lightElem.classList.remove('off');
+    lightElem.classList.add('blink')
+  }
+}
+
+
+var btn = document.querySelector('.btn');
+
+var blueLight = new Light('light', 'blue');
+
+var changeLight = document.querySelector('.secondButton');
+
+// blueLightMade.addEventListener('click', function(){
+//   var blueLight = document.querySelector('.blue');
+//   console.log(blueLight);
+//   if (counter % 2 == 1 && counter % 3 !== 0){
+//     blueLight.on();
+//   } else if (counter % 2 == 0){
+//     blueLight.blinking();
+//   } else {
+//     blueLight.off();
+//   }
+// })
+
+var onBtn = document.querySelector('.onBtn');
+var offBtn = document.querySelector('.offBtn');
+var blinkBtn = document.querySelector('.blinkBtn');
+
+var blueLights = document.querySelector('.blue')
+
+onBtn.addEventListener('click', function(){
+      blueLight.on();
+});
+offBtn.addEventListener('click', function(){
+  blueLight.off();
+});
+blinkBtn.addEventListener('click', function(){
+  blueLight.blink();
+});
+
+
+  </script>
+</html>
